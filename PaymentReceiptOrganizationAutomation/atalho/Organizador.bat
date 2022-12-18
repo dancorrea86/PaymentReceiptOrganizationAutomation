@@ -1,0 +1,1 @@
+python C:\Users\danie\source\repos\PaymentReceiptOrganizationAutomation\PaymentReceiptOrganizationAutomation\PaymentReceiptOrganizationAutomation.py
