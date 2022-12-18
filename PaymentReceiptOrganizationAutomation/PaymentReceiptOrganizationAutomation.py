@@ -23,20 +23,27 @@ class MoveArquivos:
 
     def mover_arquivos(self, lista_arquivos_para_mover):
         print("Movendo Arquivos...")
-
         for arquivo in lista_arquivos_para_mover:
             self.mostrar_log(arquivo)            
             self.criar_pasta_se_nao_existir(arquivo)
-            shutil.move('{}{}{}'.format(self.pasta_origem, "\\", arquivo), '{}{}{}{}{}'.format(self.pasta_destino, "\\",arquivo[0:7], "\\", arquivo))
+            shutil.move(self.criar_caminho_pasta_origem(arquivo), self.criar_caminho_pasta_destino(arquivo))
 
     def mostrar_log(self, arquivo):
         print ('{}{}{}'.format(self.pasta_origem, "\\", arquivo))
 
     def criar_pasta_se_nao_existir(self, arquivo):
-        if (not os.path.exists('{}{}{}'.format(self.pasta_destino, "\\",arquivo[0:7]))):
-                os.makedirs('{}{}{}'.format(self.pasta_destino, "\\",arquivo[0:7]))
+        if (not os.path.exists('{}{}{}{}{}'.format(self.pasta_destino, "\\", arquivo[0:4], "\\", arquivo[0:7]))):
+                os.makedirs('{}{}{}{}{}'.format(self.pasta_destino, "\\", arquivo[0:4], "\\", arquivo[0:7]))
+
+    def criar_caminho_pasta_origem(self, arquivo):
+        caminho_pasta_arquivo = '{}{}{}'.format(self.pasta_origem, "\\", arquivo)
+        return caminho_pasta_arquivo
+
+    def criar_caminho_pasta_destino(self, arquivo):
+        caminho_pasta_arquivo = '{}{}{}{}{}{}{}'.format(self.pasta_destino, "\\", arquivo[0:4], "\\", arquivo[0:7], "\\", arquivo)
+        return caminho_pasta_arquivo
 
 if __name__ == "__main__":
-    app = MoveArquivos(r"C:\Users\danie\Desktop", r"G:\Meu Drive\Documentos\Comprovantes\Mae\2022")
+    app = MoveArquivos(r"C:\Users\danie\Desktop", r"G:\Meu Drive\Documentos\Comprovantes\Mae")
     app.main()
     
