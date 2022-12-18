@@ -13,23 +13,7 @@ class MoveArquivos:
         self.listaArquivos = os.listdir(self.pastaOrigem)
 
     def main(self):
-        self.arquivosParaMover = self.separarArquivosPasta()
-        self.moverArquivos(self.arquivosParaMover)
-
-    def moverArquivos(self, listArquivosParaMover):
-        print("Movendo Arquivos...")
-
-        caminhoPastaOrigem = self.pastaOrigem
-        caminhoPastaDestinho = self.pastaDestino
-        
-        for arquivo in listArquivosParaMover:
-            print ('{}{}{}'.format(caminhoPastaOrigem, "\\", arquivo))
-            
-            if (not os.path.exists('{}{}{}'.format(caminhoPastaDestinho, "\\",arquivo[0:7]))):
-                os.makedirs('{}{}{}'.format(caminhoPastaDestinho, "\\",arquivo[0:7]))
-
-            shutil.move('{}{}{}'.format(caminhoPastaOrigem, "\\", arquivo), '{}{}{}{}{}'.format(caminhoPastaDestinho, "\\",arquivo[0:7], "\\", arquivo))
-        
+        self.separarArquivosPasta()
 
     def separarArquivosPasta(self):
         listArquivosParaMover = []
@@ -39,8 +23,20 @@ class MoveArquivos:
                 listArquivosParaMover.append(arquivo)
             else:
                 pass
-        return listArquivosParaMover
 
+        self.moverArquivos(listArquivosParaMover)
+
+    def moverArquivos(self, listArquivosParaMover):
+        print("Movendo Arquivos...")
+
+        for arquivo in listArquivosParaMover:
+            print ('{}{}{}'.format(self.pastaOrigem, "\\", arquivo))
+            
+            if (not os.path.exists('{}{}{}'.format(self.pastaDestino, "\\",arquivo[0:7]))):
+                os.makedirs('{}{}{}'.format(self.pastaDestino, "\\",arquivo[0:7]))
+
+            shutil.move('{}{}{}'.format(self.pastaOrigem, "\\", arquivo), '{}{}{}{}{}'.format(self.pastaDestino, "\\",arquivo[0:7], "\\", arquivo))
+        
 
 if __name__ == "__main__":
     app = MoveArquivos(r"C:\Users\danie\Desktop", r"G:\Meu Drive\Documentos\Comprovantes\Mae\2022")
