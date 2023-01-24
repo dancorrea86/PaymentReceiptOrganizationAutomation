@@ -1,5 +1,7 @@
 import shutil
 import os
+import sqllite_connection
+from conta import Conta
 
 class MoveArquivos:
     def __init__(self, pasta_origem, pasta_destino = os.getcwd):
@@ -14,12 +16,21 @@ class MoveArquivos:
         lista_arquivos_para_mover = []
 
         for arquivo in self.lista_arquivos:
-            if (arquivo.split(" ")[-1].lower() == "comprovante.pdf" or arquivo.split(" ")[-1].lower() == "pago.pdf"):
+            if (arquivo.split(" ")[-1].lower() == "comprovante.pdf"):
+                self.salvar_banco_dados(arquivo)
+                lista_arquivos_para_mover.append(arquivo)
+            elif(arquivo.split(" ")[-1].lower() == "pago.pdf"):
                 lista_arquivos_para_mover.append(arquivo)
             else:
                 pass
 
         self.mover_arquivos(lista_arquivos_para_mover)
+
+    def salvar_banco_dados(self, arquivo):
+        data = arquivo.split(" - ")[0]
+        descricao = arquivo.split(" - ")[1]
+        conta = Conta(data, descricao)
+        sqllite_connection.insert_conta(conta)
 
     def mover_arquivos(self, lista_arquivos_para_mover):
         print("Movendo Arquivos...")
