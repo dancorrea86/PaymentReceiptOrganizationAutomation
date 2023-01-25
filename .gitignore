@@ -170,3 +170,5 @@ dist
 *.suo
 .suo
 .vs
+token.json
+client_secret.json

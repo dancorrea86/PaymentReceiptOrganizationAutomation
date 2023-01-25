@@ -29,7 +29,7 @@ class MoveArquivos:
     def salvar_banco_dados(self, arquivo):
         data = arquivo.split(" - ")[0]
         descricao = arquivo.split(" - ")[1]
-        conta = Conta(data, descricao)
+        conta = Conta(descricao, data)
         sqllite_connection.insert_conta(conta)
 
     def mover_arquivos(self, lista_arquivos_para_mover):
