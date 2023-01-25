@@ -1,6 +1,8 @@
 import sqlite3
 
-conn = sqlite3.connect('contas.db')
+dbPath = 'E:\Daniel\Programacao\Projetos Completos\PaymentReceiptOrganizationAutomation.git\PaymentReceiptOrganizationAutomation\contas.db'
+
+conn = sqlite3.connect(dbPath)
 
 c = conn.cursor()
 
@@ -10,7 +12,7 @@ c = conn.cursor()
 #             )""")
 
 def insert_conta(conta):
-    conn = sqlite3.connect('contas.db')
+    conn = sqlite3.connect(dbPath)
     c = conn.cursor()
     with conn:
         c.execute("INSERT INTO contas VALUES (:descricao, :data)", {'descricao': conta.descricao, 'data': conta.data})
