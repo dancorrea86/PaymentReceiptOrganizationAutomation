@@ -2,8 +2,12 @@ import shutil
 import os
 import sqllite_connection
 from conta import Conta
+from pathlib import Path, PureWindowsPath, PurePath
 
 class MoveArquivos:
+
+    pasta_comprovantes = "G:/Meu Drive/Documentos/Comprovantes/Mae/2023/2023-01"
+    
     def __init__(self, pasta_origem, pasta_destino = os.getcwd):
         self.pasta_origem = pasta_origem
         self.pasta_destino = pasta_destino
@@ -29,7 +33,8 @@ class MoveArquivos:
     def salvar_banco_dados(self, arquivo):
         data = arquivo.split(" - ")[0]
         descricao = arquivo.split(" - ")[1]
-        conta = Conta(descricao, data)
+        arquivopath = self.pasta_comprovantes + '/' + arquivo
+        conta = Conta(descricao, data, arquivopath)
         sqllite_connection.insert_conta(conta)
 
     def mover_arquivos(self, lista_arquivos_para_mover):
