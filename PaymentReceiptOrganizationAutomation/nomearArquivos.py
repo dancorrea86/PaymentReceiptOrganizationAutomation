@@ -3,7 +3,7 @@ import time
 from time import gmtime, strftime
 from datetime import datetime
 
-class NomearArquivosNovosComData:
+class NomearArquivosNovosEVelhosComData:
 
     def __init__(self, arquivo):
         self.arquivo = arquivo
@@ -91,14 +91,20 @@ class InserirFinalArquivo():
 
 
 
-arquivos = os.listdir(r'E:\Daniel\Downloads')
+arquivos = os.listdir(r'C:\Users\danie\Desktop\Teste')
 
 # for arquivo in arquivos:
 #     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
 #     app = NomearArquivosComData(caminho_arquivo)
 #     app.nomear_arquivos_com_data()
 
+# for arquivo in arquivos:
+#     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+#     app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
+#     app.nomear_arquivos_com_data()
+
+
 for arquivo in arquivos:
-    caminho_arquivo = (r'E:\Daniel\Downloads' + "\\" + arquivo)
-    app = NomearArquivosNovosComData(caminho_arquivo)
-    app.nomear_arquivos_com_data()
+    caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+    app = InserirFinalArquivo(caminho_arquivo)
+    app.marcar_comprovante_ou_boleto_pago_arquivo()
