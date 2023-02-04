@@ -98,13 +98,13 @@ arquivos = os.listdir(r'C:\Users\danie\Desktop\Teste')
 #     app = NomearArquivosComData(caminho_arquivo)
 #     app.nomear_arquivos_com_data()
 
-# for arquivo in arquivos:
-#     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
-#     app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
-#     app.nomear_arquivos_com_data()
-
-
 for arquivo in arquivos:
     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
-    app = InserirFinalArquivo(caminho_arquivo)
-    app.marcar_comprovante_ou_boleto_pago_arquivo()
+    app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
+    app.nomear_arquivos_com_data()
+
+
+# for arquivo in arquivos:
+#     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+#     app = InserirFinalArquivo(caminho_arquivo)
+#     app.marcar_comprovante_ou_boleto_pago_arquivo()
