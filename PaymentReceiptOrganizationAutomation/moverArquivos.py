@@ -64,7 +64,8 @@ class MoveArquivos:
         caminho_pasta_arquivo = '{}{}{}{}{}{}{}'.format(self.pasta_destino, "\\", arquivo[0:4], "\\", arquivo[0:7], "\\", arquivo)
         return caminho_pasta_arquivo
 
-if __name__ == "__main__":
-    app = MoveArquivos(r"C:\Users\danie\Desktop", r"G:\Meu Drive\Documentos\Comprovantes\Mae")
-    app.main()
+def mover_arquivos(pasta):
+    if __name__ == "__main__":
+        app = MoveArquivos(pasta, r"G:\Meu Drive\Documentos\Comprovantes\Mae")
+        app.main()
     

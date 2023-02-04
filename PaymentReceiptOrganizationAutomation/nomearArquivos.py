@@ -34,7 +34,7 @@ class NomearArquivosNovosEVelhosComData:
     def renomar_arquivo(self, novo_nome):
         os.rename(self.arquivo, novo_nome)
         
-class InserirFinalArquivo():
+class InserirFinalArquivo:
 
     def __init__(self, arquivo):
         #C:\Users\danie\Desktop\Teste\2021-09-30 - Comprovante Cartão Extra.pdf
@@ -91,20 +91,24 @@ class InserirFinalArquivo():
 
 
 
-arquivos = os.listdir(r'C:\Users\danie\Desktop\Teste')
+
 
 # for arquivo in arquivos:
 #     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
 #     app = NomearArquivosComData(caminho_arquivo)
 #     app.nomear_arquivos_com_data()
 
-for arquivo in arquivos:
-    caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
-    app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
-    app.nomear_arquivos_com_data()
+def nomear_arquivos_novos_velhos_com_data(pasta):
+    # arquivos = os.listdir(r'C:\Users\danie\Desktop\Teste')
+    arquivos = os.listdir(pasta)
+    for arquivo in arquivos:
+        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
+        app.nomear_arquivos_com_data()
 
-
-# for arquivo in arquivos:
-#     caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
-#     app = InserirFinalArquivo(caminho_arquivo)
-#     app.marcar_comprovante_ou_boleto_pago_arquivo()
+def inserir_final_arquivo(pasta):
+    arquivos = os.listdir(pasta)
+    for arquivo in arquivos:
+        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        app = InserirFinalArquivo(caminho_arquivo)
+        app.marcar_comprovante_ou_boleto_pago_arquivo()
