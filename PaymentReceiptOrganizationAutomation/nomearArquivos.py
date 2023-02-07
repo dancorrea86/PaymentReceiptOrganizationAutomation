@@ -55,20 +55,30 @@ class InserirFinalArquivo:
     def renomar_arquivo(self, novo_nome):
         os.rename(self.arquivo, novo_nome)
 
+class RetirarDataArquivo:
+
+    def __init__(self, arquivo):
+        #C:\Users\danie\Desktop\Teste\2021-09-30 - Comprovante Cartão Extra.pdf
+        self.arquivo = arquivo
     
+    def retirar_dia_nome_arquivo(self):
+        nome_arquivo = self.arquivo.split(" - ")[1]
+        nome_arquivo_sem_extensao = nome_arquivo.split(".p")[0]
+        primeira_palavra = nome_arquivo_sem_extensao.split(" ")[0]
+
+        if (primeira_palavra.lower() == "comprovante"):
+            nome_arquivo = nome_arquivo_sem_extensao + " Comprovante.pdf"
+        elif (primeira_palavra.lower() == "boleto"):
+            nome_arquivo = nome_arquivo_sem_extensao + " Boleto Pago.pdf"
+
+        self.renomar_arquivo(nome_arquivo)
 
 
-    # def retirar_dia_nome_arquivo(self, nome_arquivo):
-    #     nome_arquivo = nome_arquivo.split(" - ")[1]
-    #     nome_arquivo_sem_extensao = nome_arquivo.split(".p")[0]
-    #     primeira_palavra = nome_arquivo_sem_extensao.split(" ")[0]
+    def renomar_arquivo(self, novo_nome):
+        os.rename(self.arquivo, novo_nome)
 
-    #     if (primeira_palavra.lower() == "comprovante"):
-    #         nome_arquivo = nome_arquivo_sem_extensao + " Comprovante.pdf"
-    #     elif (primeira_palavra.lower() == "boleto"):
-    #         nome_arquivo = nome_arquivo_sem_extensao + " Boleto Pago.pdf"
 
-    #     return nome_arquivo
+
         
     
     # def marcar_comprovante_ou_boleto(self, nome_arquivo):
@@ -112,3 +122,12 @@ def inserir_final_arquivo(pasta):
         caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
         app = InserirFinalArquivo(caminho_arquivo)
         app.marcar_comprovante_ou_boleto_pago_arquivo()
+
+def retirar_data_arquivo(pasta):
+    arquivos = os.listdir(pasta)
+    for arquivo in arquivos:
+        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        app = RetirarDataArquivo(caminho_arquivo)
+        app.retirar_dia_nome_arquivo()
+
+

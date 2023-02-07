@@ -65,7 +65,6 @@ class MoveArquivos:
         return caminho_pasta_arquivo
 
 def mover_arquivos(pasta):
-    if __name__ == "__main__":
-        app = MoveArquivos(pasta, r"G:\Meu Drive\Documentos\Comprovantes\Mae")
-        app.main()
+    app = MoveArquivos(pasta, r"G:\Meu Drive\Documentos\Comprovantes\Mae")
+    app.main()
     
