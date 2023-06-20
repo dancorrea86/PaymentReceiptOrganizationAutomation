@@ -23,7 +23,6 @@ Também é possível criar um executábel utilizando o módulo Pyinstaller. Inst
 pip install pyinstaller
 
 Após a instalação do módulo, rodo o comando:
-pyinstaller --onefile -i=app.ico --name="Mover_Arquivos" PaymentReceiptOrganizationAutomation.py
 pyinstaller --onefile -i="imagens/Frm_Principal.ico" main.py
 
 - Lista de tarefas
