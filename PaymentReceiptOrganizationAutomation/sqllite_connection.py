@@ -1,6 +1,7 @@
 import sqlite3
 
-dbPath = 'E:\Daniel\Programacao\Projetos Completos\PaymentReceiptOrganizationAutomation.git\PaymentReceiptOrganizationAutomation\contas.db'
+dbPath = r"C:\Users\Daniel\Programacao\Projetos Completos\PaymentReceiptOrganizationAutomation\PaymentReceiptOrganizationAutomation\contas.db"
+
 
 conn = sqlite3.connect(dbPath)
 

@@ -28,37 +28,38 @@ class windows(tk.Tk):
         self.show_frame(MainPage)
 
     def show_frame(self, cont):
-            frame = self.frames[cont]
-            # raises the current frame to the top
-            frame.tkraise()
+        frame = self.frames[cont]
+        # raises the current frame to the top
+        frame.tkraise()
+
 
 class MainPage(tk.Frame):
-
-    
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
         current_directory = filedialog.askdirectory()
 
-        buttonNomear = tk.Button(self, text="Nomear Arquivos", command=lambda:nomear_arquivos_novos_velhos_com_data(current_directory))
+        buttonNomear = tk.Button(self, text="Nomear Arquivos",
+                                 command=lambda: nomear_arquivos_novos_velhos_com_data(current_directory))
         buttonNomear.pack(side="top", fill=tk.X)
 
-        buttonInserirFinal = tk.Button(self, text="Inserir Final Arquivos", command=lambda:inserir_final_arquivo(current_directory))
+        buttonInserirFinal = tk.Button(self, text="Inserir Final Arquivos",
+                                       command=lambda: inserir_final_arquivo(current_directory))
         buttonInserirFinal.pack(side="top", fill=tk.X)
 
-        buttonRetirarData = tk.Button(self, text="Retirar Data Arquivos", command=lambda:retirar_data_arquivo(current_directory))
+        buttonRetirarData = tk.Button(self, text="Retirar Data Arquivos",
+                                      command=lambda: retirar_data_arquivo(current_directory))
         buttonRetirarData.pack(side="top", fill=tk.X)
 
-        buttonMover = tk.Button(self, text="Mover Arquivos", command=lambda:mover_arquivos(current_directory))
+        buttonMover = tk.Button(self, text="Mover Arquivos", command=lambda: mover_arquivos(current_directory))
         buttonMover.pack(side="top", fill=tk.X)
 
         buttonSair = tk.Button(self, text="Quit", command=self.destroy)
         buttonSair.pack(padx=20, pady=20)
-    
+
     # def getAdir(self):
     #     self.folder_selected = tkFileDialog.askdirectory(parent=stepOne, title='Please select a directory')
-
 
 
 if __name__ == "__main__":

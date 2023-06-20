@@ -112,21 +112,21 @@ def nomear_arquivos_novos_velhos_com_data(pasta):
     # arquivos = os.listdir(r'C:\Users\danie\Desktop\Teste')
     arquivos = os.listdir(pasta)
     for arquivo in arquivos:
-        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        caminho_arquivo = (pasta + "\\" + arquivo)
         app = NomearArquivosNovosEVelhosComData(caminho_arquivo)
         app.nomear_arquivos_com_data()
 
 def inserir_final_arquivo(pasta):
     arquivos = os.listdir(pasta)
     for arquivo in arquivos:
-        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        caminho_arquivo = (pasta + "\\" + arquivo)
         app = InserirFinalArquivo(caminho_arquivo)
         app.marcar_comprovante_ou_boleto_pago_arquivo()
 
 def retirar_data_arquivo(pasta):
     arquivos = os.listdir(pasta)
     for arquivo in arquivos:
-        caminho_arquivo = (r'C:\Users\danie\Desktop\Teste' + "\\" + arquivo)
+        caminho_arquivo = (pasta + "\\" + arquivo)
         app = RetirarDataArquivo(caminho_arquivo)
         app.retirar_dia_nome_arquivo()
 
